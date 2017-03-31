@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7.16
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    volumes:
+      - ./mysql:/var/lib/mysql
+  simplecms:
+    build: .
+    container_name: RailsSimpleCMS
+    command:  bash -c "bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/home/simplecms
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

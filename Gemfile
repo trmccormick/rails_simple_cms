@@ -32,6 +32,12 @@ gem 'acts_as_list', '~> 0.7.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# TEST ONLY GEMS
+group :test  do
+  gem 'simplecov'
+  gem 'simplecov-shield'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

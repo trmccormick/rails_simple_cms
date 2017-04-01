@@ -5,10 +5,10 @@ class PublicControllerTest < ActionDispatch::IntegrationTest
     get public_index_url
     assert_response :success
   end
-
-  test "should get show" do
-    get public_show_url
-    assert_response :success
-  end
+  #
+  # test "should get show" do
+  #   get public_show_url
+  #   assert_response :success
+  # end
 
 end

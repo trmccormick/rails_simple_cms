@@ -12,4 +12,3 @@ RUN mkdir /home/simplecms
 WORKDIR /home/simplecms
 ADD . /home/simplecms
 RUN cd /home/simplecms
-RUN bundle install

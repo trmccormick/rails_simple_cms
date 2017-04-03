@@ -1,4 +1,5 @@
 class AdminUsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
 
@@ -21,17 +22,31 @@ class AdminUsersController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def edit
-    @admin_user = AdminUser.find(params[:id])
+  end
+
+  def delete
   end
 
   def destroy
-    @admin_user = AdminUser.find(params[:id])
     @admin_user.destroy
     redirect_to admin_users_path, notice: "Admin user destroyed successfully."
+
+    # @admin_user.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to admin_users_path, notice: "Admin user destroyed successfully." }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
+
+  def set_user
+    @admin_user = AdminUser.find(params[:id])
+  end
 
   def admin_user_params
     # Permit :password, but NOT :password_digest

@@ -5,7 +5,7 @@
 <div class="admin-users edit">
     <h2>Update Admin User</h2>
 
-    <%= form_for(@admin_users) do |f| %>
+    <%= form_for(@admin_user, :method => 'delete') do |f| %>
 
       <%= render(:partial => 'form', :locals => {:f => f}) %>
 

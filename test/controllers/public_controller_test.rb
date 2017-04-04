@@ -7,12 +7,12 @@ class PublicControllerTest < ActionDispatch::IntegrationTest
     # when controller is using cache it may be a good idea to reset it afterwards
     Rails.cache.clear
   end
-  
+
   test "should get index" do
-    get public_index_url
+    get root_url
     assert_response :success
   end
-  #
+
   # test "should get show" do
   #   get public_show_url
   #   assert_response :success

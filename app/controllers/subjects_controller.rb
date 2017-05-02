@@ -3,11 +3,10 @@ class SubjectsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  before_action :find_subjects, :only => [:index]
-  before_action :set_subject_count, :only => [:new, :create, :edit, :update]
+  before_action :find_subjects, only: [:index]
+  before_action :set_subject_count, only: %i[new create edit update]
 
   def index
-    logger.debug("*** Testing the logger. ***")
   end
 
   def show
@@ -15,14 +14,15 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    @subject = Subject.new({:name => 'Default'})
+    @subject = Subject.new(name: 'Default')
   end
 
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
       # If save succeeds, redirect to the index action
-      redirect_to subjects_path, notice: "Subject '#{@subject.name}' created successfully."
+      notice_str = "Subject '#{@subject.name}' created successfully."
+      redirect_to subjects_path, notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -38,7 +38,8 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     # update the object
     if @subject.update_attributes(subject_params)
-      redirect_to subjects_path, notice: "Subject '#{@subject.name}' updated successfully."
+      notice_str = "Subject '#{@subject.name}' updated successfully."
+      redirect_to subjects_path, notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')
@@ -52,7 +53,8 @@ class SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     @subject.destroy
-    redirect_to subjects_path, notice: "Subject '#{@subject.name}' destroyed successfully."
+    notice_str = "Subject '#{@subject.name}' destroyed successfully."
+    redirect_to subjects_path, notice: notice_str
   end
 
   private
@@ -67,9 +69,6 @@ class SubjectsController < ApplicationController
 
   def set_subject_count
     @subject_count = Subject.count
-    if params[:action] == 'new' || params[:action] == 'create'
-     @subject_count += 1
-    end
+    @subject_count += 1 if params[:action] == 'new' || params[:action] == 'create'
   end
-
 end

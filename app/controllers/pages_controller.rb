@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   before_action :confirm_logged_in
   before_action :find_subject
-  before_action :set_page_count, :only => [:new, :create, :edit, :update]
+  before_action :set_page_count, only: %i[new create edit update]
 
   def index
     @page = @subject.pages.sorted
@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new(:subject_id => @subject.id)
+    @page = Page.new(subject_id: @subject.id)
   end
 
   def create
@@ -23,7 +23,8 @@ class PagesController < ApplicationController
     @page.subject = @subject
     if @page.save
       # If save succeeds, redirect to the index action
-      redirect_to pages_path(:subject_id => @subject.id), notice: "Page created successfully."
+      notice_str = 'Page created successfully.'
+      redirect_to pages_path(subject_id: @subject.id), notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -39,7 +40,8 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     # update the object
     if @page.update_attributes(page_params)
-      redirect_to page_path(@page, :subject_id => @subject.id), notice: "Page updated successfully."
+      notice_str = 'Page updated successfully.'
+      redirect_to page_path(@page, subject_id: @subject.id), notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')
@@ -53,7 +55,8 @@ class PagesController < ApplicationController
   def destroy
     @page = Page.find(params[:id])
     @page.destroy
-    redirect_to pages_path(:subject_id => @subject.id), notice: "Page destroyed successfully."
+    notice_str = 'Page destroyed successfully.'
+    redirect_to pages_path(subject_id: @subject.id), notice: notice_str
   end
 
   private
@@ -68,9 +71,6 @@ class PagesController < ApplicationController
 
   def set_page_count
     @page_count = @subject.pages.count
-    if params[:action] == 'new' || params[:action] == 'create'
-     @page_count += 1
-    end
+    @page_count += 1 if params[:action] == 'new' || params[:action] == 'create'
   end
-
 end

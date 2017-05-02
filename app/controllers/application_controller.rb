@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def confirm_logged_in
-    unless session[:user_id]
-      redirect_to access_login_path, notice: "Please log in."
-      # redirect_to prevents requeted action from running
-    end
+    notice_str = 'Please log in.'
+    redirect_to access_login_path, notice: notice_str unless session[:user_id]
   end
 end

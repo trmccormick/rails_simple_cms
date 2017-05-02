@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   layout 'admin'
 
@@ -16,24 +16,42 @@ class AdminUsersController < ApplicationController
   def create
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-      redirect_to admin_users_path, notice: "Admin user created successfully."
+      redirect_to admin_users_path, notice: 'Admin user created successfully.'
     else
       render('new')
     end
   end
 
   def update
+    @admin_user = AdminUser.find(params[:id])
+    if @admin_user.update_columns(admin_user_params)
+      flash[:notice] = 'Admin user updated'
+      redirect_to action: 'index'
+    else
+      render action: 'edit'
+    end
   end
 
   def edit
+    @admin_user = AdminUser.find(params[:id])
   end
 
   def delete
+    @admin_user = AdminUser.find(params[:id])
   end
 
   def destroy
-    @admin_user.destroy
-    redirect_to admin_users_path, notice: "Admin user destroyed successfully."
+    if session[:user_id].to_i == params[:id].to_i
+      flash[:notice] = 'Cannot delete your own account'
+    else
+      AdminUser.find(params[:id]).destroy
+      flash[:notice] = 'Admin user deleted'
+    end
+
+    redirect_to action: 'index'
+
+    # @admin_user.destroy
+    # redirect_to admin_users_path, notice: 'Admin user destroyed successfully.'
 
     # @admin_user.destroy
     # respond_to do |format|
@@ -55,9 +73,8 @@ class AdminUsersController < ApplicationController
       :last_name,
       :email,
       :username,
-      :password
+      :password,
       :password_confirmation
     )
   end
-
 end

@@ -4,7 +4,7 @@ class SectionsController < ApplicationController
 
   before_action :confirm_logged_in
   before_action :find_page
-  before_action :set_section_count, :only => [:new, :create, :edit, :update]
+  before_action :set_section_count, only: %i[new create edit update]
 
   def index
     @sections = @page.sections.sorted
@@ -15,7 +15,7 @@ class SectionsController < ApplicationController
   end
 
   def new
-    @section = Section.new(:page_id => @page.id)
+    @section = Section.new(page_id: @page.id)
   end
 
   def create
@@ -23,7 +23,8 @@ class SectionsController < ApplicationController
     @section.page = @page
     if @section.save
       # If save succeeds, redirect to the index action
-      redirect_to sections_path(:page_id => @page.id), notice: "Section created successfully."
+      notice_str = 'Section created successfully.'
+      redirect_to sections_path(page_id: @page.id), notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -39,7 +40,8 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     # update the object
     if @section.update_attributes(section_params)
-      redirect_to sections_path(:page_id => @page.id), notice: "Section updated successfully."
+      notice_str = 'Section updated successfully.'
+      redirect_to sections_path(page_id: @page.id), notice: notice_str
     else
       # If save fails, redisplay the form so user can fix problems
       render('edit')
@@ -53,8 +55,8 @@ class SectionsController < ApplicationController
   def destroy
     @section = Section.find(params[:id])
     @section.destroy
-    flash[:notice] = "Section destroyed successfully."
-    redirect_to(sections_path(:page_id => @page.id))
+    flash[:notice] = 'Section destroyed successfully.'
+    redirect_to(sections_path(page_id: @page.id))
   end
 
   private
@@ -69,9 +71,7 @@ class SectionsController < ApplicationController
 
   def set_section_count
     @section_count = @page.sections.count
-    if params[:action] == 'new' || params[:action] == 'create'
-     @section_count += 1
-    end
+    @section_count += 1 if params[:action] == 'new' || params[:action] == 'create'
   end
 
 end

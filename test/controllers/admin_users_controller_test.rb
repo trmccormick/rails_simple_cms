@@ -27,12 +27,12 @@ class AdminUsersControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
   # end
 
-  test "should get login" do
+  test 'should get login' do
     get access_login_url
     assert_response :success
   end
 
-  test "should get logout" do
+  test 'should get logout' do
     get access_logout_url
     assert_response :success
   end

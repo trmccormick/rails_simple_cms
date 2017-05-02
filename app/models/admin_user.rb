@@ -5,22 +5,22 @@ class AdminUser < ApplicationRecord
   has_and_belongs_to_many :pages
 
   has_many :section_edits
-  has_many :sections, :through => :section_edits
+  has_many :sections, through: :section_edits
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  FORBIDDEN_USERNAME = ['littlebopeep', 'humptydumpty', 'marymary']
+  FORBIDDEN_USERNAME = %w[littlebopeep humptydumpty marymary].freeze
 
   # "sexy" validations
-  validates :first_name, :presence => true,
-                         :length => { :maximum => 25 }
-  validates :first_name, :presence => true,
-                         :length => { :maximum => 50 }
-  validates :username, :length => { :within => 5..25 },
-                       :uniqueness => true
-  validates :email, :presence => true,
-                    :length => { :maximum => 100 },
-                    :format => VALID_EMAIL_REGEX,
-                    :confirmation => true
+  validates :first_name, presence: true,
+                         length: { maximum: 25 }
+  validates :first_name, presence: true,
+                         length: { maximum: 50 }
+  validates :username, length: { within: 5..25 },
+                       uniqueness: true
+  validates :email, presence: true,
+                    length: { maximum: 100 },
+                    format: VALID_EMAIL_REGEX,
+                    confirmation: true
 
   validate :username_is_allowed
 
@@ -35,9 +35,6 @@ class AdminUser < ApplicationRecord
   private
 
   def username_is_allowed
-    if FORBIDDEN_USERNAME.include?(username)
-      errors.add(:username, "has been restricted from use.")
-    end
+    errors.add(:username, 'has been restricted from use.') if FORBIDDEN_USERNAME.include?(username)
   end
-
 end

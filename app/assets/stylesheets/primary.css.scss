@@ -8,8 +8,9 @@ $yellow: #F2DC87;
 $dark_brown: #332318;
 $light_brown: #4C2516;
 $white: #FFFFFF;
+$light_grey: #D3D3D3;
 
-$sans_serif: Verdana,Lucida,Arial,Helvetica,sans-serif;
+$sans_serif: verdana, arial, helvetica, sans-serif;
 
 html {
   height: 100%;
@@ -18,11 +19,10 @@ html {
 
 body {
   width: 100%;
-  min-width: 980px;
   height: 100%;
   margin: 0;
   padding: 0;
-  font: 14px $sans_serif;
+  font: 13px $sans_serif;
   color: $dark_brown;
 }
 
@@ -57,7 +57,7 @@ a:hover {}
 
 #main {
   min-height: 500px;
-  background: $yellow;
+  background: $white;
 }
 
 #navigation {
@@ -65,11 +65,15 @@ a:hover {}
   width: 180px;
   min-height: 480px;
   padding: 10px;
-  background: $green;
+  background: $light_grey;
   color: $light_brown;
 }
 
-#content { padding: 10px; }
+#content {
+  padding: 10px;
+  width: calc(100% - 220px);
+  float:left;
+}
 
 #footer {
   clear: both;

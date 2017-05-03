@@ -32,6 +32,6 @@ class AccessController < ApplicationController
   def logout
     session[:user_id] = nil
     session[:username] = nil
-    redirect_to access_login_path, notice: 'Loggged out'
+    redirect_to access_login_path, notice: 'Logged out'
   end
 end

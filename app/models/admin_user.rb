@@ -8,7 +8,7 @@ class AdminUser < ApplicationRecord
   has_many :sections, through: :section_edits
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  FORBIDDEN_USERNAME = %w[littlebopeep humptydumpty marymary].freeze
+  FORBIDDEN_USERNAME = %w[username administrator].freeze
 
   # "sexy" validations
   validates :first_name, presence: true,

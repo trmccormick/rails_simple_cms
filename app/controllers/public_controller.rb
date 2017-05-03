@@ -10,11 +10,7 @@ class PublicController < ApplicationController
 
   def show
     @page = Page.visible.where(permalink: params[:permalink]).first
-    if @page.nil?
-      redirect_to(root_path)
-    else
-      # display the page content using show.html.erb
-    end
+    redirect_to(root_path) if @page.nil?
   end
 
   private

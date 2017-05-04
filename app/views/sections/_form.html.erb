@@ -29,3 +29,18 @@
     <td><%= f.text_area(:content, :size => '40x10') %></td>
   </tr>
 </table>
+
+<div class='file-upload-wrapper'>
+  <div class='image-preview'>
+    <% if section.filename.present? %>
+        <p><img src='data:<%=section.image_type%>;base64,<%= section.base64_encode%>'></p>
+    <% else %>
+       <p> Image Preview </p>
+    <% end %>
+  </div>
+
+  <div class='field file-upload' data-text='Please Upload an Image'>
+    <%= f.label :'Please Upload a Thumbnail' %>
+    <%= f.file_field :file, accept: 'image/png,image/gif,image/jpeg,image/svg+xml', class: 'file-upload-input' %>
+  </div>
+</div>

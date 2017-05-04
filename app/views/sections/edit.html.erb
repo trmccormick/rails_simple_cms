@@ -7,7 +7,7 @@
 
     <%= form_for(@section, :url => section_path(@section, :page_id => @page.id)) do |f| %>
 
-      <%= render(:partial => 'form', :locals => {:f => f}) %>
+      <%= render(:partial => 'form', :locals => {:f => f, :section => @section}) %>
 
       <div class="form-buttons">
         <%= f.submit("Update Section") %>

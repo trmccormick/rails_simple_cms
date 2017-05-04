@@ -4,7 +4,9 @@
 
 <% @page.sections.visible.sorted.each do |section| %>
   <div class="section">
-    <!-- Thumbnail Image goes here -->
+    <div class="thumb">
+      <img src="data:<%=section.image_type%>;base64,<%= section.base64_encode%>">
+    </div>
     <h3><%= section.name %></h3>
     <% case section.content_type %>
     <% when 'HTML' %>

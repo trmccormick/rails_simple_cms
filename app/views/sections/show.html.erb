@@ -1,6 +1,6 @@
 <% @page_title = "Show Section" %>
 
-<%= link_to("<< Back to List", sections_path(:page_id => @page.id), :class => 'back-link') %>
+<%= link_to("<< Back to List", sections_path(page_id: @page.id), class: 'back-link') %>
 
 <div class="sections show">
   <h2>Show Section</h2>
@@ -29,6 +29,10 @@
     <tr>
       <th>Content</th>
       <td><%= @section.content %></td>
+    </tr>
+    <tr>
+      <th>Thumbnail</th>
+      <td><img src="data:<%=@section.image_type%>;base64,<%= @section.base64_encode%>"></td>
     </tr>
     <tr>
       <th>Created</th>

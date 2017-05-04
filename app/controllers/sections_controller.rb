@@ -62,7 +62,7 @@ class SectionsController < ApplicationController
   private
 
   def section_params
-    params.require(:section).permit(:name, :position, :visible, :content_type, :content)
+    params.require(:section).permit(:name, :position, :visible, :content_type, :content, :file)
   end
 
   def find_page
@@ -73,5 +73,4 @@ class SectionsController < ApplicationController
     @section_count = @page.sections.count
     @section_count += 1 if params[:action] == 'new' || params[:action] == 'create'
   end
-
 end

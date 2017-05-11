@@ -32,6 +32,7 @@
 
 <div class='file-upload-wrapper'>
   <div class='image-preview'>
+    <p>Image Upload</p>
     <% if section.filename.present? %>
         <p><img src='data:<%=section.image_type%>;base64,<%= section.base64_encode%>'></p>
     <% else %>

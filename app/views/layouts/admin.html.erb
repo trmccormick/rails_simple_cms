@@ -2,28 +2,28 @@
 <html>
   <head>
     <title>SimpleCms: <%= @page_title || "Admin Area" %></title>
-    <%= stylesheet_link_tag('admin', :media => 'all') %>
+    <%= stylesheet_link_tag('admin', media: 'all') %>
   </head>
 
   <body>
-
-    <header id="header">
+    <!-- Header -->
+    <header>
       <h1>Simple CMS Admin</h1>
     </header>
 
-    <main id="main">
-      <div id="notice">
-       <%= notice %>
-      </div>
+    <div id="notice">
+     <%= notice %>
+    </div>
 
-      <div id="content">
+    <!-- Main Content Yeiled by Views -->
+    <main id="main" class="main">
+
+      <article class="article" id="content">
         <%= yield %>
-      </div>
+      </article>
     </main>
 
-    <footer id="footer">
-      <p id="copyright">&copy; lynda.com</p>
-    </footer>
-
+    <!-- Footer -->
+    <footer>Copyright &copy; Lynda.com</footer>
   </body>
 </html>

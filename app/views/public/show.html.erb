@@ -3,16 +3,18 @@
 <h2><%= @page.name %></h2>
 
 <% @page.sections.visible.sorted.each do |section| %>
-  <div class="section">
-    <div class="thumb">
+  <div class="section-item">
+    <div class="section-thumb">
       <img src="data:<%=section.image_type%>;base64,<%= section.base64_encode%>">
     </div>
-    <h3><%= section.name %></h3>
-    <% case section.content_type %>
-    <% when 'HTML' %>
-      <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
-    <% when 'text' %>
-      <%= simple_format(section.content) %>
-    <% end %>
+    <div class="section-content">
+      <h3><%= section.name %></h3>
+      <% case section.content_type %>
+      <% when 'HTML' %>
+        <%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %>
+      <% when 'text' %>
+        <%= simple_format(section.content) %>
+      <% end %>
+    </div>
   </div>
 <% end %>

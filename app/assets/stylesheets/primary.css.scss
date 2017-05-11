@@ -8,93 +8,32 @@ $yellow: #F2DC87;
 $dark_brown: #332318;
 $light_brown: #4C2516;
 $white: #FFFFFF;
-$light_grey: #D3D3D3;
+$light_grey: #eee;
 
 $sans_serif: verdana, arial, helvetica, sans-serif;
 
-html {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font: 13px $sans_serif;
-  color: $dark_brown;
+  display: -webkit-flex;
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  flex-direction: column;
 }
 
-p, td, ul, ol, li, dl, dt, dd {
-  font-family: $sans_serif;
+main {
+    display: flex;
+    flex: 1 0 auto;
 }
 
-img { border: none; }
-table { border-collapse: collapse; }
-
-table tr th, table tr td {
-  vertical-align: top;
-  text-align: left;
-  padding: 3px;
-}
-a, a:visited { color: $red; }
-a:hover {}
-
-.clear { clear: both; }
-.center { text-align: center; }
-
-/* Structure */
-#header {
-  height: 4em;
-  padding-top: 1em;
-  text-align: center;
-  background: $red;
-  color: $white;
-
-  h1 { margin: 0; padding: 0; }
+nav {
+    background:$light_grey;
+    padding: 10px;
+    width: 200px;
 }
 
-#main {
-  min-height: 500px;
-  background: $white;
-}
-
-#navigation {
-  float: left;
-  width: 180px;
-  min-height: 480px;
-  padding: 10px;
-  background: $light_grey;
-  color: $light_brown;
-}
-
-#content {
-  padding: 10px;
-  width: calc(100% - 220px);
-  float:left;
-}
-
-#footer {
-  clear: both;
-  height: 2.5em;
-  text-align: right;
-  background: $light_brown image-url('footer_gradient.png') repeat-y 0 0;
-  color: $yellow;
-
-  p {
-    margin: 0;
-    padding: 0.5em 1em;
-  }
-}
-
-/* Navigation */
-#navigation {
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+nav ul {
+    list-style-type: none;
+    padding: 1px;
     li {
       margin-bottom: 0.5em;
     }
@@ -102,19 +41,55 @@ a:hover {}
       margin: 0.5em 0 0 1em;
       font-size: 0.9em;
     }
-  }
+}
 
-  a {
+nav ul a {
     text-decoration: none;
-    padding: 1px 3px;
     &:hover {
       background: $yellow;
     }
-  }
+}
+
+article {
+  width: 100%;
+  padding-left: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-item {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-thumb img {
+  padding: 10px;
+}
+
+.section-content {
 
 }
 
-/* Content */
-#content h2 {
-  color: $light_brown;
+header {
+  background: $red;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  h1 {
+    padding: 10px;
+    margin: 0;
+  }
+}
+
+footer {
+  background: $light_brown image-url('footer_gradient.png') repeat-y 0 0;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  h1 {
+    padding: 10px;
+    margin: 0;
+  }
 }

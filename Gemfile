@@ -29,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'acts_as_list', '~> 0.7.6'
 
+# Used with imageMagick for image manupilation
+gem 'mini_magick'
+
+# Used for file uploads
+gem 'carrierwave', '~> 1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

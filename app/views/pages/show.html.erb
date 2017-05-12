@@ -27,6 +27,10 @@
       <td><%= @page.visible ? 'true' : 'false' %></td>
     </tr>
     <tr>
+      <th>Image:</th>
+      <td><%= image_tag @page.image_url(:thumb) if @page.image?  %></td>
+    </tr>
+    <tr>
       <th>Created</th>
       <td><%= @page.created_at %></td>
     </tr>

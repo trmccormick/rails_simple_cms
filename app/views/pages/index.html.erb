@@ -11,6 +11,7 @@
   <table class="listing" summary="Page list">
     <tr class="header">
       <th>#</th>
+      <th>Image</th>
       <th>Subject ID</th>
       <th>Page</th>
       <th>Permalink</th>
@@ -20,7 +21,9 @@
     </tr>
     <% @page.each do |page| %>
     <tr>
+      <tr>
         <td><%= page.position %></td>
+        <td><%= image_tag page.image_url(:thumb) if page.image?  %></td>
         <td><%= page.subject_id %></td>
         <td><%= page.name %></td>
         <td><%= page.permalink %></td>

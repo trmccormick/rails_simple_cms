@@ -31,8 +31,8 @@
       <td><%= @section.content %></td>
     </tr>
     <tr>
-      <th>Thumbnail</th>
-      <td><img src="data:<%=@section.image_type%>;base64,<%= @section.base64_encode%>"></td>
+      <th>Image:</th>
+      <td><%= image_tag @section.image_url(:thumb) if @section.image?  %></td>
     </tr>
     <tr>
       <th>Created</th>

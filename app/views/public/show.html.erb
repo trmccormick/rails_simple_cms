@@ -5,7 +5,7 @@
 <% @page.sections.visible.sorted.each do |section| %>
   <div class="section-item">
     <div class="section-thumb">
-      <img src="data:<%=section.image_type%>;base64,<%= section.base64_encode%>">
+      <%= image_tag section.image? ? section.image_url(:thumb) : @page.image_url(:thumb) %>
     </div>
     <div class="section-content">
       <h3><%= section.name %></h3>

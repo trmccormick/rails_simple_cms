@@ -22,3 +22,4 @@ mysql
 .DS_Store
 
 SQLFiles/*
+public/uploads

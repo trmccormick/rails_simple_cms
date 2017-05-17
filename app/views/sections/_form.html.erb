@@ -1,47 +1,32 @@
 <%= error_messages_for(f.object) %>
 
-<table summary="Section form fields">
-  <tr>
-    <th>Name</th>
-    <td><%= f.text_field(:name) %></td>
-  </tr>
-  <tr>
-    <th>Page</th>
-    <td><%= f.object.page.name %></td>
-  </tr>
-  <tr>
-    <th>Position</th>
-    <td><%= f.select(:position, 1..@section_count) %></td>
-  </tr>
-  <tr>
-    <th>Visible</th>
-    <td><%= f.check_box(:visible) %></td>
-  </tr>
-  <tr>
-    <th>Content type</th>
-    <td>
-      <%= f.radio_button(:content_type, 'text') %> Text
-      <%= f.radio_button(:content_type, 'HTML') %> HTML
-    </td>
-  </tr>
-  <tr>
-    <th>Content</th>
-    <td><%= f.text_area(:content, :size => '40x10') %></td>
-  </tr>
-</table>
-
-<div class='file-upload-wrapper'>
-  <div class='image-preview'>
-    <p>Image Upload</p>
-    <% if section.filename.present? %>
-        <p><img src='data:<%=section.image_type%>;base64,<%= section.base64_encode%>'></p>
-    <% else %>
-       <p> Image Preview </p>
-    <% end %>
-  </div>
-
-  <div class='field file-upload' data-text='Please Upload an Image'>
-    <%= f.label :'Please Upload a Thumbnail' %>
-    <%= f.file_field :file, accept: 'image/png,image/gif,image/jpeg,image/svg+xml', class: 'file-upload-input' %>
-  </div>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.object.page.name %>
+</div>
+<div class="field">
+  <%= f.label :position %><br>
+  <%= f.select(:position, 1..@section_count) %>
+</div>
+<div class="field">
+  <%= f.label :visible %><br>
+  <%= f.check_box(:visible) %>
+</div>
+<div class="field">
+  <%= f.label :content_type %><br>
+  <%= f.radio_button(:content_type, 'text') %> Text
+  <%= f.radio_button(:content_type, 'HTML') %> HTML
+</div>
+<div class="field">
+  <%= f.label :content %><br>
+  <%= f.text_area(:content, :size => '40x10') %>
+</div>
+<div class="field">
+  <%= f.label :image %><br>
+  <%= f.file_field :image %>
+  <% if f.object.image? %>
+    <%= image_tag f.object.image.thumb.url %>
+    <%= f.label :remove_image %>
+    <%= f.check_box :remove_image %>
+  <% end %>
 </div>

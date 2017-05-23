@@ -22,6 +22,7 @@ class Section < ApplicationRecord
   validate :image_size_validation
 
   mount_uploader :image, ImageUploader
+  mount_uploader :audio, AudioUploader
 
   private
 

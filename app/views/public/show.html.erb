@@ -15,6 +15,11 @@
       <% when 'text' %>
         <%= simple_format(section.content) %>
       <% end %>
+      <% if section.audio? %>
+        <%= 'Filename: ' %>
+        <%= section.audio %><br><br>
+        <%= audio_tag(section.audio_url, autoplay: false, controls: true) %>
+      <% end %>
     </div>
   </div>
 <% end %>

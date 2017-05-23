@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213134927) do
+ActiveRecord::Schema.define(version: 20170518221058) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",      limit: 25
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161213134927) do
     t.boolean  "visible",    default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "image"
     t.index ["permalink"], name: "index_pages_on_permalink", using: :btree
     t.index ["subject_id"], name: "index_pages_on_subject_id", using: :btree
   end
@@ -59,6 +60,8 @@ ActiveRecord::Schema.define(version: 20161213134927) do
     t.string   "content"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.string   "image"
+    t.string   "audio"
     t.index ["page_id"], name: "index_sections_on_page_id", using: :btree
   end
 

@@ -30,3 +30,11 @@
     <%= f.check_box :remove_image %>
   <% end %>
 </div>
+<div class="field">
+  <%= f.label :audio %><br>
+  <%= f.file_field :audio %>
+  <% if f.object.audio? %>
+    <%= f.label :remove_audio %>
+    <%= f.check_box :remove_audio %>
+  <% end %>
+</div>

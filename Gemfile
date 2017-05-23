@@ -35,6 +35,9 @@ gem 'mini_magick'
 # Used for file uploads
 gem 'carrierwave', '~> 1.0'
 
+# WYSIWYG Editor for rails
+# gem 'wysiwyg-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

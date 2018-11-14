@@ -62,7 +62,7 @@ class SectionsController < ApplicationController
   private
 
   def section_params
-    params.require(:section).permit(:name, :position, :visible, :content_type, :content, :image, :audio)
+    params.require(:section).permit(:name, :position, :visible, :content_type, :content, :image, :audio, :video)
   end
 
   def find_page

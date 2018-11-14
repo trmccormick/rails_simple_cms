@@ -23,6 +23,7 @@ class Section < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
+  mount_uploader :video, VideoUploader
 
   private
 

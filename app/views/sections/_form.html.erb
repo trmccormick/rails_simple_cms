@@ -2,7 +2,7 @@
 
 <div class="field">
   <%= f.label :name %><br>
-  <%= f.object.page.name %>
+  <%= f.text_area(:name, :size => '40x10') %>
 </div>
 <div class="field">
   <%= f.label :position %><br>
@@ -36,5 +36,13 @@
   <% if f.object.audio? %>
     <%= f.label :remove_audio %>
     <%= f.check_box :remove_audio %>
+  <% end %>
+</div>
+<div class="field">
+  <%= f.label :video %><br>
+  <%= f.file_field :video %>
+  <% if f.object.video? %>
+    <%= f.label :remove_video %>
+    <%= f.check_box :remove_video %>
   <% end %>
 </div>

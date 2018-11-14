@@ -39,6 +39,10 @@
       <td><%= audio_tag(@section.audio_url, autoplay: false, controls: true) if @section.audio? %></td>
     </tr>
     <tr>
+      <th>Video:</th>
+      <td><%= video_tag(@section.video_url, autoplay: false, controls: true) if @section.video? %></td>
+    </tr>    
+    <tr>
       <th>Created</th>
       <td><%= @section.created_at %></td>
     </tr>

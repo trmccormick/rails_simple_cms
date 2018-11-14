@@ -1,29 +1,31 @@
 <%= error_messages_for(f.object) %>
 
-<table summary="Admin user form fields">
-  <tr>
-    <th><%= f.label(:first_name) %></th>
-    <td><%= f.text_field(:first_name) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:last_name) %></th>
-    <td><%= f.text_field(:last_name) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:email) %></th>
-    <td><%= f.text_field(:email) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:username) %></th>
-    <td><%= f.text_field(:username) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:password) %></th>
-    <td><%= f.password_field(:password) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:password_confirmation) %></th>
-    <td><%= f.password_field(:password_confirmation) %></td>
-  </tr>
+<div class="field">
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %>
+</div>
 
-</table>
+<div class="field">
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %>
+</div>
+
+<div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+</div>
+
+<div class="field">
+  <%= f.label :username %><br>
+  <%= f.text_field :username %>
+</div>
+
+<div class="field">
+  <%= f.label :password %><br>
+  <%= f.password_field :password %>
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %>
+</div>

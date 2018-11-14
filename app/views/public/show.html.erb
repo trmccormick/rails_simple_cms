@@ -20,6 +20,11 @@
         <%= section.audio %><br><br>
         <%= audio_tag(section.audio_url, autoplay: false, controls: true) %>
       <% end %>
+      <% if section.video? %>
+        <%= 'Filename: ' %>
+        <%= section.video %><br><br>
+        <%= video_tag(section.video_url, autoplay: false, controls: true) %>
+      <% end %>      
     </div>
   </div>
 <% end %>

@@ -32,9 +32,9 @@ class AdminUsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get logout' do
-    get access_logout_url
-    assert_response :success
-  end
+  # test 'should get logout' do
+  #   get access_logout_url
+  #   assert_response :success
+  # end
 
 end

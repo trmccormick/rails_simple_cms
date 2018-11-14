@@ -22,8 +22,8 @@
       <% end %>
       <% if section.video? %>
         <%= 'Filename: ' %>
-        <%= section.video %><br><br>
-        <%= video_tag(section.video_url, autoplay: false, controls: true) %>
+        <%= section.video %><br>
+        <%= video_tag(section.video_url, size: "800x600", autoplay: false, controls: true) %>
       <% end %>      
     </div>
   </div>

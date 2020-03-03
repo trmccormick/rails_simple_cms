@@ -20,11 +20,9 @@ services:
     tty: true
     stdin_open: true
     container_name: simplecms
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     environment:
       - DATABASE_PASSWORD=docker
-      - TERM=xterm 
-      - RAILS_ENV=development
+      - TERM=xterm
     volumes:
       - .:/home/simplecms
     ports:

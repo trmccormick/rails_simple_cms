@@ -38,6 +38,9 @@ gem 'carrierwave-ffmpeg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# frontend
+gem 'font-awesome-sass'
+
 # TEST ONLY GEMS
 group :test  do
   gem 'simplecov'

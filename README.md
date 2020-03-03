@@ -4,8 +4,8 @@ This Simple CMS application was originally built while following the rails tutor
 
 ## Dependencies
   - Docker / Docker-Compose (For development)
-  - Ruby Version (2.3.3)
-  - Rails -v (5.0.0.1)
+  - Ruby Version (2.6)
+  - Rails -v (5.2.4.1)
   - MySQL
   - Bundler
 ---

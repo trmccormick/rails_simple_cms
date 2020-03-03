@@ -4,8 +4,10 @@
 
 <% @page.sections.visible.sorted.each do |section| %>
   <div class="section-item">
-    <div class="section-thumb">
-      <%= image_tag section.image? ? section.image_url(:thumb) : @page.image_url(:thumb) %>
+    <div class="section-side">
+      <div class="section-thumb">
+        <%= image_tag section.image? ? section.image_url(:thumb) : @page.image_url(:thumb) %>
+      </div>
     </div>
     <div class="section-content">
       <h3><%= section.name %></h3>
@@ -18,12 +20,12 @@
       <% if section.audio? %>
         <%= 'Filename: ' %>
         <%= section.audio %><br><br>
-        <%= audio_tag(section.audio_url, autoplay: false, controls: true) %>
+        <%= audio_tag(section.audio_url, autoplay: false, controls: true) %><br>
       <% end %>
       <% if section.video? %>
         <%= 'Filename: ' %>
-        <%= section.video %><br>
-        <%= video_tag(section.video_url, size: "800x600", autoplay: false, controls: true) %>
+        <%= section.video %><br><br>
+        <%= video_tag(section.video_url, size: "800x600", autoplay: false, controls: true) %><br>
       <% end %>      
     </div>
   </div>

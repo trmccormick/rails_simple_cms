@@ -64,7 +64,18 @@ article {
   flex-direction: row;
 }
 
-.section-thumb img {
+section-side {
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-thumb {
+  flex: 1;
+  height: 100%;
   padding: 10px;
 }
 

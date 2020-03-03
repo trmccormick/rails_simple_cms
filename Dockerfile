@@ -1,7 +1,7 @@
-FROM ruby:2.5
+FROM ruby:2.6
 
 # Node.js
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - \
     && apt-get install -y nodejs
     
 # FFMPEG

@@ -10,6 +10,9 @@
       <h1>Simple CMS</h1>
     </header>
 
+    <!-- Navigation -->
+    <%= render(:partial => 'shared/navigation') %>    
+
     <!-- Main Content Yeiled by Views -->
     <main id="main" class="main">
       <!-- Navigation / Menu -->
@@ -23,7 +26,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>Copyright &copy; Lynda.com</footer>
+    <%= render(:partial => 'shared/footer') %>  
 
   </body>
 </html>

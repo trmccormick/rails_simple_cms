@@ -122,7 +122,8 @@ GEM
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    puma (3.12.4)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -230,7 +231,7 @@ DEPENDENCIES
   mime-types
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (~> 5.2.0)
   rmagick
   sass-rails (~> 5.0)
